@@ -1,0 +1,21 @@
+import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
+
+export default function ContactPage() {
+  return (
+    <section className="mx-auto max-w-3xl px-6 py-20">
+      <Reveal>
+        <h1 className="font-mono text-3xl font-bold text-brand-text">Contact</h1>
+        <p className="mt-4 text-brand-muted">
+          Tell us what you&apos;re working on and which service you need — we&apos;ll reply
+          within a business day.
+        </p>
+      </Reveal>
+      <Reveal delay={0.1}>
+        <div className="mt-10">
+          <ContactForm />
+        </div>
+      </Reveal>
+    </section>
+  );
+}
