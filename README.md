@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Truthstack
 
-## Getting Started
+Marketing site for Truthstack — software testing & QA consultancy.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in NEXT_PUBLIC_FORMSPREE_ENDPOINT
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` — local dev server
+- `npm run build` — production build
+- `npm run lint` — ESLint
+- `npm run test:unit` — Vitest (data + validation logic)
+- `npm run test:e2e` — Playwright smoke tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+Hosted on Vercel via its GitHub integration: link this repo in the Vercel
+dashboard once, and it auto-deploys — preview URL per PR, production on
+merge to `main`. No deploy scripting needed here; `.github/workflows/ci.yml`
+only gates merges (lint/typecheck/tests/build).
 
-To learn more about Next.js, take a look at the following resources:
+## Setup still needed (not covered by this repo)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Domain** — register a domain and point its DNS at Vercel.
+- **Formspree** — create a Formspree account, create a form, and set
+  `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (locally in `.env.local`, and in Vercel's
+  project environment variables) to its endpoint URL.
+- **Vercel** — create a Vercel account/project and link this GitHub repo.
+- **Content** — replace the About page's team placeholders and the Home
+  page's `[client logo]` placeholders with real content once available.
