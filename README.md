@@ -24,10 +24,18 @@ CI runs on Node 20. `npm run test:e2e` works locally without setting `NEXT_PUBLI
 
 ## Deployment
 
-Hosted on Vercel via its GitHub integration: link this repo in the Vercel
-dashboard once, and it auto-deploys — preview URL per PR, production on
-merge to `main`. No deploy scripting needed here; `.github/workflows/ci.yml`
-only gates merges (lint/typecheck/tests/build).
+Hosted on Vercel:
+
+- **Live site:** [https://truthstack-site.vercel.app/](https://truthstack-site.vercel.app/)
+- **Project dashboard:** [https://vercel.com/truthstack-site/truthstack-site](https://vercel.com/truthstack-site/truthstack-site)
+
+GitHub integration auto-deploys — preview URL per PR, production on merge
+to `main`. No deploy scripting needed here; `.github/workflows/ci.yml` only
+gates merges (lint/typecheck/tests/build). Vercel Analytics is included via
+`<Analytics />` in `app/layout.tsx`.
+
+Redeploy production from the dashboard or with `npx vercel --prod` after
+`npx vercel link`.
 
 ## Setup still needed (not covered by this repo)
 
@@ -35,6 +43,5 @@ only gates merges (lint/typecheck/tests/build).
 - **Formspree** — create a Formspree account, create a form, and set
   `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (locally in `.env.local`, and in Vercel's
   project environment variables) to its endpoint URL.
-- **Vercel** — create a Vercel account/project and link this GitHub repo.
 - **Content** — replace the About page's team placeholders and the Home
   page's `[client logo]` placeholders with real content once available.
