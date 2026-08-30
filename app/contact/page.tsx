@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Truthstack about testing, QA consulting, or CI/CD pipeline work.",
+};
 
 export default function ContactPage() {
   return (

@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 
 const TEAM_PLACEHOLDERS = ["Team member", "Team member", "Team member"];
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Why Truthstack exists, how we work, and who we are.",
+};
 
 export default function AboutPage() {
   return (

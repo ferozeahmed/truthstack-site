@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("nav renders all links with correct hrefs", async ({ page }) => {
   await page.goto("/");
+  const header = page.getByRole("banner");
   const links: [string, string][] = [
     ["Home", "/"],
     ["Services", "/services"],
@@ -10,7 +11,7 @@ test("nav renders all links with correct hrefs", async ({ page }) => {
     ["Contact", "/contact"],
   ];
   for (const [label, href] of links) {
-    await expect(page.getByRole("link", { name: label, exact: true }).first()).toHaveAttribute(
+    await expect(header.getByRole("link", { name: label, exact: true })).toHaveAttribute(
       "href",
       href
     );

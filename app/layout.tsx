@@ -15,9 +15,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Truthstack — Software Testing & QA Consultancy",
+  metadataBase: new URL("https://truthstack.example.com"),
+  title: {
+    default: "Truthstack — Software Testing & QA Consultancy",
+    template: "%s — Truthstack",
+  },
   description:
     "Truthstack helps teams ship reliable software: testing, AI-model validation, CI/CD pipelines, and testing-as-a-service.",
+  openGraph: {
+    type: "website",
+    siteName: "Truthstack",
+    title: "Truthstack — Software Testing & QA Consultancy",
+    description:
+      "Truthstack helps teams ship reliable software: testing, AI-model validation, CI/CD pipelines, and testing-as-a-service.",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

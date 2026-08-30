@@ -8,7 +8,7 @@ export default function PricingCard({ model }: { model: EngagementModel }) {
       <p className="mt-2 text-brand-muted">{model.description}</p>
       <ul className="mt-4 list-disc list-inside text-brand-muted flex-1">
         {model.included.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={`${model.id}-${item}`}>{item}</li>
         ))}
       </ul>
       <Link

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import PricingCard from "@/components/PricingCard";
 import Reveal from "@/components/Reveal";
 import { engagementModels } from "@/lib/pricing-data";
+
+export const metadata: Metadata = {
+  title: "Pricing",
+  description:
+    "Truthstack engagement models: project-based, staff augmentation, and testing-as-a-service retainers.",
+};
 
 export default function PricingPage() {
   return (

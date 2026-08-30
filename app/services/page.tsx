@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import ServiceGrid from "@/components/ServiceGrid";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services-data";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Software testing, AI-model validation, test consultants, CI/CD pipeline setup, and testing-as-a-service from Truthstack.",
+};
 
 export default function ServicesPage() {
   return (

@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 
 test("shows inline validation errors on empty submit", async ({ page }) => {
+  await page.route("**/formspree.io/**", (route) =>
+    route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
+  );
   await page.goto("/contact");
   await page.getByRole("button", { name: "Send message" }).click();
   await expect(page.getByText("Name is required.")).toBeVisible();

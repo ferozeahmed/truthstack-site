@@ -9,8 +9,8 @@ export default function ServiceCard({
   detailed?: boolean;
 }) {
   return (
-    <div className="rounded-lg border border-brand-border bg-brand-surface p-6">
-      <span className="text-3xl">{service.icon}</span>
+    <div className="rounded-lg border border-brand-border bg-brand-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-brand-accent-cyan hover:shadow-lg hover:shadow-brand-accent-cyan/10">
+      <span aria-hidden="true" className="text-3xl">{service.icon}</span>
       <h3 className="mt-3 font-mono text-lg font-semibold text-brand-text">{service.title}</h3>
       <p className="mt-2 text-brand-muted">{service.summary}</p>
       {detailed && (
@@ -21,7 +21,7 @@ export default function ServiceCard({
           </h4>
           <ul className="mt-2 list-disc list-inside text-brand-muted">
             {service.included.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={`${service.id}-${item}`}>{item}</li>
             ))}
           </ul>
           <Link
