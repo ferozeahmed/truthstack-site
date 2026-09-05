@@ -9,6 +9,9 @@ export default function Footer() {
           <Link href="/services" className="hover:text-brand-accent-cyan">Services</Link>
           <Link href="/pricing" className="hover:text-brand-accent-cyan">Pricing</Link>
           <Link href="/contact" className="hover:text-brand-accent-cyan">Contact</Link>
+          <a href="mailto:algofire-contact@googlegroups.com" className="hover:text-brand-accent-cyan">
+            algofire-contact@googlegroups.com
+          </a>
         </div>
       </div>
     </footer>

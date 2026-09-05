@@ -16,6 +16,16 @@ export default function ContactPage() {
           Tell us what you&apos;re working on and which service you need — we&apos;ll reply
           within a business day.
         </p>
+        <p className="mt-2 text-brand-muted">
+          Prefer email? Reach us at{" "}
+          <a
+            href="mailto:algofire-contact@googlegroups.com"
+            className="text-brand-accent-green hover:underline"
+          >
+            algofire-contact@googlegroups.com
+          </a>
+          .
+        </p>
       </Reveal>
       <Reveal delay={0.1}>
         <div className="mt-10">

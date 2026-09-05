@@ -125,13 +125,21 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p role="alert" className="text-red-400">
-          Something went wrong — please try again or email us directly.
+          Something went wrong — please try again or email us directly at{" "}
+          <a href="mailto:algofire-contact@googlegroups.com" className="underline">
+            algofire-contact@googlegroups.com
+          </a>
+          .
         </p>
       )}
 
       {status === "misconfigured" && (
         <p role="alert" className="text-red-400">
-          This form isn&apos;t configured yet — please email us directly instead.
+          This form isn&apos;t configured yet — please email us directly at{" "}
+          <a href="mailto:algofire-contact@googlegroups.com" className="underline">
+            algofire-contact@googlegroups.com
+          </a>
+          .
         </p>
       )}
     </form>
