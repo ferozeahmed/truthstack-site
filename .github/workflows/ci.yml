@@ -9,8 +9,6 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_FORMSPREE_ENDPOINT: https://formspree.io/f/test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

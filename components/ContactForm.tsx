@@ -12,7 +12,7 @@ const EMPTY: ContactFormData = {
   message: "",
 };
 
-type Status = "idle" | "submitting" | "success" | "error" | "misconfigured";
+type Status = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
   const [data, setData] = useState<ContactFormData>(EMPTY);
@@ -29,17 +29,11 @@ export default function ContactForm() {
     setErrors(result.errors);
     if (!result.valid) return;
 
-    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-    if (!endpoint) {
-      setStatus("misconfigured");
-      return;
-    }
-
     setStatus("submitting");
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       setStatus(res.ok ? "success" : "error");
@@ -126,16 +120,6 @@ export default function ContactForm() {
       {status === "error" && (
         <p role="alert" className="text-red-400">
           Something went wrong — please try again or email us directly at{" "}
-          <a href="mailto:algofire-contact@googlegroups.com" className="underline">
-            algofire-contact@googlegroups.com
-          </a>
-          .
-        </p>
-      )}
-
-      {status === "misconfigured" && (
-        <p role="alert" className="text-red-400">
-          This form isn&apos;t configured yet — please email us directly at{" "}
           <a href="mailto:algofire-contact@googlegroups.com" className="underline">
             algofire-contact@googlegroups.com
           </a>

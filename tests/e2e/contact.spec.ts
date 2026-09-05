@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("shows inline validation errors on empty submit", async ({ page }) => {
-  await page.route("**/formspree.io/**", (route) =>
+  await page.route("**/api/contact", (route) =>
     route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
   );
   await page.goto("/contact");
@@ -11,7 +11,7 @@ test("shows inline validation errors on empty submit", async ({ page }) => {
 });
 
 test("submits successfully with valid data", async ({ page }) => {
-  await page.route("**/formspree.io/**", (route) =>
+  await page.route("**/api/contact", (route) =>
     route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
   );
 
