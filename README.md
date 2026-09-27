@@ -22,20 +22,40 @@ npm run dev
 
 CI runs on Node 20. `npm run test:e2e` never calls the real `/api/contact` route — the contact tests mock that endpoint with Playwright's `page.route`, so no `RESEND_API_KEY` is needed locally or in CI.
 
-## Deployment
+## Git workflow
 
-Hosted on Vercel:
+- **`develop`** — integration. Feature work lands here first.
+- **`main`** — production. Only updated by merging a pull request from `develop`.
+
+There is no deploy script in this repo. [Vercel Git](https://vercel.com/docs/git) deploys production when GitHub receives a push to `main` (the merge commit from that PR). CI (`.github/workflows/ci.yml`) only gates merges: lint, typecheck, unit tests, build, and Playwright. It does not deploy.
+
+### Day to day
+
+1. Branch from `develop`, open a PR **into `develop`**.
+2. Wait for CI. Vercel may attach a preview URL to the PR.
+3. Merge into `develop` when it looks good.
+
+### Ship to production
+
+1. Open a PR **`develop` → `main`** (do not push straight to `main`).
+2. Wait for CI on that PR to pass.
+3. Merge the PR. Vercel builds `main` and updates [https://truthstack-site.vercel.app/](https://truthstack-site.vercel.app/).
+
+### One-time setup (Vercel + GitHub)
+
+Do this in the [Vercel project](https://vercel.com/truthstack-site/truthstack-site), not in code:
+
+1. Connect the GitHub repo `ferozeahmed/truthstack-site` if it is not already connected.
+2. Set the **Production Branch** to `main`.
+
+Recommended GitHub settings for `main` (Settings → Branches): require a pull request, require the CI status check to pass, and disallow direct pushes. Same rules on `develop` are optional but useful.
+
+Emergency redeploy: dashboard **Redeploy**, or `npx vercel --prod` after `npx vercel link`. Vercel Analytics is included via `<Analytics />` in `app/layout.tsx`.
+
+## Hosting
 
 - **Live site:** [https://truthstack-site.vercel.app/](https://truthstack-site.vercel.app/)
 - **Project dashboard:** [https://vercel.com/truthstack-site/truthstack-site](https://vercel.com/truthstack-site/truthstack-site)
-
-GitHub integration auto-deploys — preview URL per PR, production on merge
-to `main`. No deploy scripting needed here; `.github/workflows/ci.yml` only
-gates merges (lint/typecheck/tests/build). Vercel Analytics is included via
-`<Analytics />` in `app/layout.tsx`.
-
-Redeploy production from the dashboard or with `npx vercel --prod` after
-`npx vercel link`.
 
 ## Setup still needed (not covered by this repo)
 
