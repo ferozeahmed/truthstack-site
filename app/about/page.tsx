@@ -17,6 +17,24 @@ const FACTS = [
   { label: "Engagements", value: "Remote, open to teams worldwide" },
 ];
 
+const PULSE_FEATURES = [
+  { title: "Web testing", text: "Playwright page-object base class with common actions built in." },
+  { title: "API testing", text: "httpx-based client base with a factory for multiple services." },
+  {
+    title: "Configuration",
+    text: "Environment-aware settings (dev, staging, prod) that projects extend.",
+  },
+  {
+    title: "Reporting",
+    text: "Allure steps, with a screenshot attached automatically when a test fails.",
+  },
+  { title: "Parallel runs", text: "Works with pytest-xdist; no shared global state." },
+  {
+    title: "Quality gates",
+    text: "CI runs ruff, strict mypy and tests on Python 3.10–3.12 for every pull request.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-20">
@@ -58,6 +76,35 @@ export default function AboutPage() {
             </div>
           ))}
         </dl>
+      </Reveal>
+
+      <Reveal delay={0.15}>
+        <h2 className="mt-16 font-mono text-xl font-bold text-brand-text">How we build: PULSE</h2>
+        <p className="mt-6 text-brand-muted">
+          PULSE (Playwright Uncomplicated Layered Scalable Execution) is a Python base framework
+          for web and API test suites, built by Feroze and published on GitHub. It installs as a
+          pytest plugin that teams extend instead of copying code between projects — a working
+          example of how Truthstack designs test automation.
+        </p>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+          {PULSE_FEATURES.map((feature) => (
+            <li
+              key={feature.title}
+              className="rounded-lg border border-brand-border bg-brand-surface p-5"
+            >
+              <p className="font-mono text-sm text-brand-accent-green">{feature.title}</p>
+              <p className="mt-1 text-brand-muted">{feature.text}</p>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="https://github.com/ferozeahmed/PULSE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-block font-mono text-brand-accent-cyan hover:underline"
+        >
+          View PULSE on GitHub &rarr;
+        </a>
       </Reveal>
 
       <Reveal delay={0.2}>
