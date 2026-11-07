@@ -28,7 +28,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <Reveal>
           <h2 className="text-center font-mono text-2xl font-bold text-brand-text">
-            What we do
+            What I do
           </h2>
         </Reveal>
         <Reveal delay={0.1}>

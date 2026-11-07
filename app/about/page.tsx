@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Why Truthstack exists, how we work, and the test automation architect behind it.",
+    "Why Truthstack exists, how I work, and the test automation architect behind it.",
 };
 
 const FACTS = [
@@ -41,12 +41,12 @@ export default function AboutPage() {
       <Reveal>
         <h1 className="font-mono text-3xl font-bold text-brand-text">About Truthstack</h1>
         <p className="mt-6 text-brand-muted">
-          We started Truthstack because too much software ships untested, and the bugs land on
-          users instead of engineers. We work as an extension of your team — testing, auditing,
+          I started Truthstack because too much software ships untested, and the bugs land on
+          users instead of engineers. I work as an extension of your team — testing, auditing,
           and building the pipelines that catch problems before release.
         </p>
         <p className="mt-4 text-brand-muted">
-          Our approach: understand your product, find where quality actually breaks down, and fix
+          My approach: understand your product, find where quality actually breaks down, and fix
           the process, not just the bug of the week.
         </p>
       </Reveal>
@@ -56,14 +56,13 @@ export default function AboutPage() {
           Who&apos;s behind Truthstack
         </h2>
         <p className="mt-6 text-brand-muted">
-          Truthstack is led by Feroze Ahmed R, a test automation architect with 18+ years in quality
-          engineering. He has designed and built test automation frameworks from scratch, working
-          across Python, Java, JavaScript and TypeScript, and now focuses on bringing AI into
+          I&apos;m Feroze Ahmed R, a test automation architect with 18+ years in quality
+          engineering. I&apos;ve designed and built test automation frameworks from scratch, working
+          across Python, Java, JavaScript and TypeScript, and I now focus on bringing AI into
           test automation and on validating AI-powered products.
         </p>
         <p className="mt-4 text-brand-muted">
-          You work directly with the person doing the work — no hand-offs between a sales team
-          and a delivery team.
+          You work directly with me — no hand-offs between a sales team and a delivery team.
         </p>
         <dl className="mt-8 grid gap-4 sm:grid-cols-2">
           {FACTS.map((fact) => (
@@ -79,12 +78,12 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal delay={0.15}>
-        <h2 className="mt-16 font-mono text-xl font-bold text-brand-text">How we build: PULSE</h2>
+        <h2 className="mt-16 font-mono text-xl font-bold text-brand-text">How I build: PULSE</h2>
         <p className="mt-6 text-brand-muted">
           PULSE (Playwright Uncomplicated Layered Scalable Execution) is a Python base framework
-          for web and API test suites, built by Feroze Ahmed R and published on GitHub. It installs as a
+          for web and API test suites, built by me and published on GitHub. It installs as a
           pytest plugin that teams extend instead of copying code between projects — a working
-          example of how Truthstack designs test automation.
+          example of how I design test automation.
         </p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {PULSE_FEATURES.map((feature) => (

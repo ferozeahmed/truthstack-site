@@ -12,3 +12,11 @@ test("services page renders detailed cards for all 8 services", async ({ page })
   const includedHeadings = page.getByText("What's included");
   await expect(includedHeadings).toHaveCount(services.length);
 });
+
+test("services use line icons instead of emoji", async ({ page }) => {
+  await page.goto("/services");
+  await expect(page.getByTestId("service-icon")).toHaveCount(services.length);
+  for (const emoji of ["🧪", "🤖", "🧠", "🔍", "🔁"]) {
+    await expect(page.getByText(emoji)).toHaveCount(0);
+  }
+});
