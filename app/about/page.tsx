@@ -56,7 +56,7 @@ export default function AboutPage() {
           Who&apos;s behind Truthstack
         </h2>
         <p className="mt-6 text-brand-muted">
-          Truthstack is led by Feroze, a test automation architect with 18+ years in quality
+          Truthstack is led by Feroze Ahmed R, a test automation architect with 18+ years in quality
           engineering. He has designed and built test automation frameworks from scratch, working
           across Python, Java, JavaScript and TypeScript, and now focuses on bringing AI into
           test automation and on validating AI-powered products.
@@ -82,7 +82,7 @@ export default function AboutPage() {
         <h2 className="mt-16 font-mono text-xl font-bold text-brand-text">How we build: PULSE</h2>
         <p className="mt-6 text-brand-muted">
           PULSE (Playwright Uncomplicated Layered Scalable Execution) is a Python base framework
-          for web and API test suites, built by Feroze and published on GitHub. It installs as a
+          for web and API test suites, built by Feroze Ahmed R and published on GitHub. It installs as a
           pytest plugin that teams extend instead of copying code between projects — a working
           example of how Truthstack designs test automation.
         </p>

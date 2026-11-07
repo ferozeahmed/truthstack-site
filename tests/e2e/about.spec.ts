@@ -17,3 +17,8 @@ test("about page showcases PULSE with a link to its public repo", async ({ page 
   await expect(link).toHaveAttribute("href", "https://github.com/ferozeahmed/PULSE");
   await expect(link).toHaveAttribute("rel", /noopener/);
 });
+
+test("about page names the founder", async ({ page }) => {
+  await page.goto("/about");
+  await expect(page.getByText(/led by Feroze Ahmed R/)).toBeVisible();
+});
