@@ -12,7 +12,7 @@ test("about page renders mission and founder section with no placeholders", asyn
 
 test("about page showcases PULSE with a link to its public repo", async ({ page }) => {
   await page.goto("/about");
-  await expect(page.getByRole("heading", { name: /how we build: pulse/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /how i build: pulse/i })).toBeVisible();
   const link = page.getByRole("link", { name: /view pulse on github/i });
   await expect(link).toHaveAttribute("href", "https://github.com/ferozeahmed/PULSE");
   await expect(link).toHaveAttribute("rel", /noopener/);
@@ -20,5 +20,5 @@ test("about page showcases PULSE with a link to its public repo", async ({ page 
 
 test("about page names the founder", async ({ page }) => {
   await page.goto("/about");
-  await expect(page.getByText(/led by Feroze Ahmed R/)).toBeVisible();
+  await expect(page.getByText(/I.m Feroze Ahmed R/)).toBeVisible();
 });

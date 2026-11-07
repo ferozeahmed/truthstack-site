@@ -16,7 +16,7 @@ export default function PricingPage() {
         <h1 className="font-mono text-3xl font-bold text-brand-text">Pricing</h1>
         <p className="mt-4 max-w-2xl text-brand-muted">
           QA work doesn&apos;t fit neat tiers — pick the engagement model that matches how you
-          want to work with us, and we&apos;ll scope it together.
+          want to work with me, and I&apos;ll scope it with you.
         </p>
       </Reveal>
       <Reveal delay={0.1}>
