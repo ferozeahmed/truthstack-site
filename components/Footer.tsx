@@ -10,6 +10,7 @@ export default function Footer() {
           <Link href="/about" className="hover:text-brand-accent-cyan">About</Link>
           <Link href="/pricing" className="hover:text-brand-accent-cyan">Pricing</Link>
           <Link href="/contact" className="hover:text-brand-accent-cyan">Contact</Link>
+          <Link href="/privacy" className="hover:text-brand-accent-cyan">Privacy</Link>
           <a href="mailto:algofire-contact@googlegroups.com" className="hover:text-brand-accent-cyan">
             algofire-contact@googlegroups.com
           </a>

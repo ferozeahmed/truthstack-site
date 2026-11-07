@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Service } from "@/lib/services-data";
+import ServiceIcon from "@/components/ServiceIcon";
 
 export default function ServiceCard({
   service,
@@ -10,7 +11,7 @@ export default function ServiceCard({
 }) {
   return (
     <div className="rounded-lg border border-brand-border bg-brand-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-brand-accent-cyan hover:shadow-lg hover:shadow-brand-accent-cyan/10">
-      <span aria-hidden="true" className="text-3xl">{service.icon}</span>
+      <ServiceIcon serviceId={service.id} fallback={service.icon} />
       <h3 className="mt-3 font-mono text-lg font-semibold text-brand-text">{service.title}</h3>
       <p className="mt-2 text-brand-muted">{service.summary}</p>
       {detailed && (

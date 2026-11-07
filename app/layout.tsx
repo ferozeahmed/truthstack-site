@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Set NEXT_PUBLIC_SITE_URL to the custom domain once one is connected.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://truthstack-site.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://truthstack.example.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Truthstack — Software Testing & QA Consultancy",
     template: "%s — Truthstack",
