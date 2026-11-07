@@ -13,11 +13,11 @@ export default function ContactPage() {
       <Reveal>
         <h1 className="font-mono text-3xl font-bold text-brand-text">Contact</h1>
         <p className="mt-4 text-brand-muted">
-          Tell us what you&apos;re working on and which service you need — we&apos;ll reply
+          Tell me what you&apos;re working on and which service you need — I&apos;ll reply
           within a business day.
         </p>
         <p className="mt-2 text-brand-muted">
-          Prefer email? Reach us at{" "}
+          Prefer email? Reach me at{" "}
           <a
             href="mailto:algofire-contact@googlegroups.com"
             className="text-brand-accent-green hover:underline"

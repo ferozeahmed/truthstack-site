@@ -22,7 +22,7 @@ export default function Hero() {
         href="/contact"
         className="mt-8 inline-block rounded-md bg-brand-accent-green px-6 py-3 font-mono font-semibold text-brand-bg hover:opacity-90"
       >
-        Talk to us
+        Talk to me
       </Link>
     </section>
   );

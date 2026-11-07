@@ -45,7 +45,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <p role="status" className="text-brand-accent-green">
-        Thanks — we&apos;ll get back to you shortly.
+        Thanks — I&apos;ll get back to you shortly.
       </p>
     );
   }
@@ -119,7 +119,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p role="alert" className="text-red-400">
-          Something went wrong — please try again or email us directly at{" "}
+          Something went wrong — please try again or email me directly at{" "}
           <a href="mailto:algofire-contact@googlegroups.com" className="underline">
             algofire-contact@googlegroups.com
           </a>
