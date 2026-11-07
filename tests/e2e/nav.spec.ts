@@ -28,3 +28,38 @@ test("mobile menu toggles", async ({ page }) => {
   await page.getByRole("button", { name: "Toggle menu" }).click();
   await expect(header.getByRole("link", { name: "Services", exact: true })).toBeVisible();
 });
+
+test("nav marks the current page and styles Contact as the call to action", async ({ page }) => {
+  await page.goto("/services");
+  const header = page.getByRole("banner");
+  await expect(header.getByRole("link", { name: "Services", exact: true })).toHaveAttribute(
+    "aria-current",
+    "page"
+  );
+  await expect(header.getByRole("link", { name: "Home", exact: true })).not.toHaveAttribute(
+    "aria-current",
+    "page"
+  );
+  await expect(header.getByRole("link", { name: "Contact", exact: true })).toHaveClass(
+    /bg-brand-accent-green/
+  );
+});
+
+test("mobile menu toggle reports its expanded state and closes after navigating", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 800 });
+  await page.goto("/");
+  const toggle = page.getByRole("button", { name: "Toggle menu" });
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  await page.getByRole("banner").getByRole("link", { name: "About", exact: true }).click();
+  await expect(page).toHaveURL(/\/about$/);
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+});
+
+test("footer links to About", async ({ page }) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true })
+  ).toHaveAttribute("href", "/about");
+});

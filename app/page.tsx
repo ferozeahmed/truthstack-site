@@ -5,6 +5,21 @@ import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services-data";
 import Link from "next/link";
 
+const tools = [
+  "Playwright",
+  "Selenium",
+  "Cypress",
+  "Appium",
+  "Postman",
+  "k6",
+  "GitHub Actions",
+  "Jenkins",
+  "Python",
+  "Java",
+  "JavaScript",
+  "TypeScript",
+];
+
 export default function Home() {
   return (
     <>
@@ -23,26 +38,46 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16 grid grid-cols-3 gap-6">
+      <section
+        aria-label="Experience and credentials"
+        className="mx-auto max-w-4xl px-6 py-16 grid grid-cols-3 gap-6"
+      >
         <Reveal>
-          <StatCounter label="Bugs caught pre-release" value={1200} suffix="+" />
+          <StatCounter label="Years in quality engineering" value={18} suffix="+" />
         </Reveal>
         <Reveal delay={0.1}>
-          <StatCounter label="Avg. test coverage lift" value={40} suffix="%" />
+          <div className="text-center">
+            <p className="font-mono text-xl font-bold text-brand-accent-green sm:text-2xl">
+              Claude Certified Professional
+            </p>
+            <p className="text-brand-muted mt-1">Certification</p>
+          </div>
         </Reveal>
         <Reveal delay={0.2}>
-          <StatCounter label="Teams supported" value={25} suffix="+" />
+          <div className="text-center">
+            <p className="font-mono text-xl font-bold text-brand-accent-green sm:text-2xl">
+              Web · API · Mobile · AI
+            </p>
+            <p className="text-brand-muted mt-1">Testing coverage</p>
+          </div>
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16 text-center">
+      <section aria-labelledby="tools-heading" className="mx-auto max-w-4xl px-6 py-16 text-center">
         <Reveal>
-          <p className="text-brand-muted">Trusted by engineering teams shipping real products.</p>
-          <div className="mt-6 flex justify-center gap-8 text-brand-muted/50 font-mono">
-            <span>[client logo]</span>
-            <span>[client logo]</span>
-            <span>[client logo]</span>
-          </div>
+          <h2 id="tools-heading" className="text-brand-muted">
+            Tools &amp; stack
+          </h2>
+          <ul className="mt-6 flex flex-wrap justify-center gap-3 font-mono text-sm text-brand-text">
+            {tools.map((tool) => (
+              <li
+                key={tool}
+                className="rounded-md border border-brand-muted/30 px-3 py-1.5"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </section>
 
