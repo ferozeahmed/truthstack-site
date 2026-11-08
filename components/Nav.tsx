@@ -10,6 +10,7 @@ type NavLink = { href: string; label: string; cta?: boolean };
 const LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact", cta: true },

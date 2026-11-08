@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Service } from "@/lib/services-data";
+import { getServicePage } from "@/lib/service-pages";
 import ServiceIcon from "@/components/ServiceIcon";
 
 export default function ServiceCard({
@@ -31,12 +32,19 @@ export default function ServiceCard({
               <li key={`${service.id}-${item}`}>{item}</li>
             ))}
           </ul>
-          <Link
-            href="/contact"
-            className="mt-4 inline-block text-brand-accent-green hover:underline"
-          >
-            Get in touch →
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            {getServicePage(service.id) && (
+              <Link
+                href={`/services/${service.id}`}
+                className="text-brand-accent-cyan hover:underline"
+              >
+                See how it works →
+              </Link>
+            )}
+            <Link href="/contact" className="text-brand-accent-green hover:underline">
+              Get in touch →
+            </Link>
+          </div>
         </>
       )}
     </div>

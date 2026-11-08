@@ -22,7 +22,7 @@ const PULSE_FEATURES = [
   { title: "API testing", text: "httpx-based client base with a factory for multiple services." },
   {
     title: "Configuration",
-    text: "Environment-aware settings (dev, staging, prod) that projects extend.",
+    text: "Environment-driven settings (PULSE_ variables and .env) for base URLs and headless mode, which projects extend.",
   },
   {
     title: "Reporting",

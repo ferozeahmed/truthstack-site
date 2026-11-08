@@ -6,6 +6,7 @@ test("nav renders all links with correct hrefs", async ({ page }) => {
   const links: [string, string][] = [
     ["Home", "/"],
     ["Services", "/services"],
+    ["Work", "/work"],
     ["About", "/about"],
     ["Pricing", "/pricing"],
     ["Contact", "/contact"],
