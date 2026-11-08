@@ -3,81 +3,82 @@ export interface Service {
   title: string;
   summary: string;
   details: string;
+  bestFor: string;
   included: string[];
+  /** Emoji fallback, used only if no line icon exists for the service id. */
   icon: string;
 }
 
 export const services: Service[] = [
   {
-    id: "software-testing",
-    title: "Software Testing",
-    summary: "Manual and automated testing across web, API, and mobile.",
+    id: "test-automation-framework",
+    title: "Test Automation Framework Build",
+    summary: "A maintainable framework designed around your stack and your team.",
     details:
-      "I design and run functional, regression, and exploratory test suites tailored to your product, catching defects before your users do.",
-    included: ["Test plan design", "Manual & automated execution", "Defect tracking & reporting"],
-    icon: "🧪",
-  },
-  {
-    id: "ai-capability-testing",
-    title: "AI-Capability Testing",
-    summary: "Validate AI-powered features against real-world usage.",
-    details:
-      "I test the AI-driven parts of your product — prompts, agents, tool calls, retrieval — for correctness, robustness, and graceful failure.",
-    included: ["Prompt & agent test design", "Adversarial input testing", "Regression harness setup"],
-    icon: "🤖",
-  },
-  {
-    id: "ai-model-testing",
-    title: "AI Model Testing",
-    summary: "Evaluate model outputs for accuracy, bias, and drift.",
-    details:
-      "I build evaluation suites for your models — accuracy benchmarks, bias checks, and drift monitoring — so quality holds as models change.",
-    included: ["Evaluation harness", "Bias & fairness checks", "Drift monitoring setup"],
-    icon: "🧠",
-  },
-  {
-    id: "test-consultants",
-    title: "Test Consultants",
-    summary: "An embedded QA expert who works inside your team.",
-    details:
-      "I join your sprints, pair with your engineers, and raise the bar on testing practice from the inside.",
-    included: ["Embedded QA engineer", "Sprint-based engagement", "Knowledge transfer to your team"],
-    icon: "🧑‍💻",
-  },
-  {
-    id: "testing-solutions",
-    title: "Testing Solutions",
-    summary: "Custom tooling and frameworks built for your stack.",
-    details:
-      "When off-the-shelf tools don't fit, I build test frameworks and internal tooling designed around your architecture.",
-    included: ["Custom framework design", "Tooling integration", "Documentation & handoff"],
+      "I design and build test automation frameworks from scratch — page objects, API clients, configuration, reporting and parallel execution — in the language your team already works in, so your engineers can extend it without me.",
+    bestFor: "Teams with manual-heavy or fragile automation who want a foundation they can own.",
+    included: [
+      "Architecture and tooling choices (Playwright, Selenium, Cypress, Appium, REST)",
+      "Reusable base layers for web, API and mobile",
+      "Reporting and parallel execution",
+      "Documentation and team handoff",
+    ],
     icon: "🛠️",
   },
   {
-    id: "test-strategy-audits",
-    title: "Test-Strategy Audits",
+    id: "test-strategy-audit",
+    title: "Test Strategy & Automation Audit",
     summary: "An outside review of how your team tests today.",
     details:
-      "I audit your current testing strategy, coverage, and process, and hand back a prioritized plan to close the gaps.",
-    included: ["Coverage & process audit", "Risk-ranked findings", "Actionable roadmap"],
+      "I review your current testing strategy, coverage, automation and release process, then hand back a prioritized, risk-ranked plan for closing the gaps.",
+    bestFor: "Teams unsure where quality is breaking down, or preparing to scale testing.",
+    included: ["Coverage and process audit", "Risk-ranked findings", "Actionable roadmap"],
     icon: "🔍",
   },
   {
-    id: "cicd-pipeline-setup",
-    title: "CI/CD Pipeline Setup",
+    id: "cicd-test-pipeline",
+    title: "CI/CD Test Pipeline Setup",
     summary: "Automated pipelines that run your tests on every change.",
     details:
-      "I design and stand up CI/CD pipelines that run your test suite automatically, gate merges, and ship with confidence.",
-    included: ["Pipeline design", "CI/CD tool setup", "Test-gate configuration"],
+      "I wire your test suites into CI/CD so they run on every change, gate merges and report results where your team already looks.",
+    bestFor: "Teams whose tests exist but don't run reliably on every change.",
+    included: [
+      "Pipeline design",
+      "CI/CD setup (GitHub Actions, Jenkins)",
+      "Test-gate configuration",
+      "Parallel runs for fast feedback",
+    ],
     icon: "🔁",
   },
   {
-    id: "testing-as-a-service",
-    title: "Testing-as-a-Service",
-    summary: "Ongoing QA coverage, billed as a flexible retainer.",
+    id: "ai-llm-testing",
+    title: "AI & LLM Testing",
+    summary: "Validate AI-powered features and the models behind them.",
     details:
-      "Standing QA coverage on retainer — I handle continuous test execution, triage, and reporting — without the overhead of hiring in-house.",
-    included: ["Continuous test execution", "Ongoing triage & reporting", "Flexible monthly retainer"],
-    icon: "♾️",
+      "I test the AI-driven parts of your product — prompts, agents, tool calls, retrieval — and build evaluation suites for your models: accuracy benchmarks, bias checks and drift monitoring, so quality holds as models change.",
+    bestFor: "Teams shipping AI features who need evidence they work and keep working.",
+    included: [
+      "Prompt and agent test design",
+      "Adversarial input testing",
+      "Evaluation harness and benchmarks",
+      "Bias and drift checks",
+      "Regression harness setup",
+    ],
+    icon: "🤖",
+  },
+  {
+    id: "embedded-consultant",
+    title: "Embedded Consultant & Testing-as-a-Service",
+    summary: "Ongoing QA expertise inside your team, on a flexible retainer.",
+    details:
+      "I join your sprints and pair with your engineers, or provide standing QA coverage on a monthly retainer — continuous test execution, triage and reporting — without the overhead of hiring in-house.",
+    bestFor: "Teams that need senior QA capacity now without a full-time hire.",
+    included: [
+      "Embedded in your sprints",
+      "Manual and automated test execution",
+      "Ongoing triage and reporting",
+      "Knowledge transfer to your team",
+    ],
+    icon: "🧑‍💻",
   },
 ];

@@ -6,7 +6,7 @@ import { services } from "@/lib/services-data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Software testing, AI-model validation, test consultants, CI/CD pipeline setup, and testing-as-a-service from Truthstack.",
+    "Test automation frameworks, test strategy audits, CI/CD test pipelines, AI and LLM testing, and embedded QA consulting from Truthstack.",
 };
 
 export default function ServicesPage() {
@@ -15,7 +15,7 @@ export default function ServicesPage() {
       <Reveal>
         <h1 className="font-mono text-3xl font-bold text-brand-text">Services</h1>
         <p className="mt-4 max-w-2xl text-brand-muted">
-          Everything Truthstack offers, from hands-on testing to standing up your CI/CD pipeline.
+          Five ways I can help, from building your automation framework to testing your AI features and joining your team.
         </p>
       </Reveal>
       <Reveal delay={0.1}>
