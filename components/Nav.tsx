@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -39,8 +40,8 @@ export default function Nav() {
         aria-label="Main"
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
       >
-        <Link href="/" className="font-mono text-lg font-bold text-brand-accent-green">
-          Truthstack
+        <Link href="/" aria-label="Truthstack home">
+          <Logo />
         </Link>
         <button
           className="md:hidden text-brand-text"
