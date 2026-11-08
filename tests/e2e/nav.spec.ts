@@ -64,3 +64,17 @@ test("footer links to About", async ({ page }) => {
     page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true })
   ).toHaveAttribute("href", "/about");
 });
+
+test("header shows the logo and links home", async ({ page }) => {
+  await page.goto("/about");
+  const home = page.getByRole("banner").getByRole("link", { name: "Truthstack home" });
+  await expect(home).toBeVisible();
+  await expect(home.locator("svg")).toBeVisible();
+  await home.click();
+  await expect(page).toHaveURL(/\/$/);
+});
+
+test("site declares an icon", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator('link[rel="icon"]').first()).toHaveAttribute("href", /icon/);
+});
