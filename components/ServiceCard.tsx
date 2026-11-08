@@ -17,6 +17,12 @@ export default function ServiceCard({
       {detailed && (
         <>
           <p className="mt-4 text-brand-text">{service.details}</p>
+          <p className="mt-4 text-brand-muted">
+            <span className="font-mono text-sm uppercase tracking-wide text-brand-accent-cyan">
+              Best for:
+            </span>{" "}
+            {service.bestFor}
+          </p>
           <h4 className="mt-4 font-mono text-sm uppercase tracking-wide text-brand-accent-cyan">
             What&apos;s included
           </h4>

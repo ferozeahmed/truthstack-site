@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { services } from "./services-data";
 
 describe("services data", () => {
-  it("has exactly 8 services", () => {
-    expect(services).toHaveLength(8);
+  it("has exactly 5 services", () => {
+    expect(services).toHaveLength(5);
   });
 
   it("each service has all required non-empty fields", () => {
@@ -12,6 +12,7 @@ describe("services data", () => {
       expect(service.title).toBeTruthy();
       expect(service.summary).toBeTruthy();
       expect(service.details).toBeTruthy();
+      expect(service.bestFor).toBeTruthy();
       expect(service.included.length).toBeGreaterThan(0);
       expect(service.icon).toBeTruthy();
     }

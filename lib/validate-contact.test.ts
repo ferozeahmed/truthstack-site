@@ -5,7 +5,7 @@ const valid: ContactFormData = {
   name: "Ada Lovelace",
   email: "ada@example.com",
   company: "Acme",
-  serviceInterest: "software-testing",
+  serviceInterest: "test-automation-framework",
   message: "We need help with our test suite.",
 };
 

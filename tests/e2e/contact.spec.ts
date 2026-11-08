@@ -18,7 +18,7 @@ test("submits successfully with valid data", async ({ page }) => {
   await page.goto("/contact");
   await page.getByLabel("Name").fill("Ada Lovelace");
   await page.getByLabel("Email").fill("ada@example.com");
-  await page.getByLabel("Service you're interested in").selectOption("software-testing");
+  await page.getByLabel("Service you're interested in").selectOption("test-automation-framework");
   await page.getByLabel("Message").fill("We need help with our test suite.");
   await page.getByRole("button", { name: "Send message" }).click();
 

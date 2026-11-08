@@ -3,13 +3,16 @@ import { services } from "../../lib/services-data";
 
 test("home page renders hero, all service cards, and CTA", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /ship software that actually works/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /test automation that keeps pace with how fast you ship/i })).toBeVisible();
 
   for (const service of services) {
     await expect(page.getByText(service.title, { exact: true })).toBeVisible();
   }
 
   await expect(page.getByRole("link", { name: "Talk to me" })).toHaveAttribute("href", "/contact");
+  await expect(page.getByRole("link", { name: "See services" })).toHaveAttribute("href", "/services");
+  await expect(page.getByText("Open to new engagements")).toBeVisible();
+  await expect(page.getByText(/18\+ years of experience/)).toBeVisible();
 });
 
 test("home page shows real credentials and tools, with no placeholder proof", async ({ page }) => {
