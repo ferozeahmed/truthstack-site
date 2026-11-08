@@ -7,6 +7,7 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Truthstack. All rights reserved.</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/services" className="hover:text-brand-accent-cyan">Services</Link>
+          <Link href="/work" className="hover:text-brand-accent-cyan">Work</Link>
           <Link href="/about" className="hover:text-brand-accent-cyan">About</Link>
           <Link href="/pricing" className="hover:text-brand-accent-cyan">Pricing</Link>
           <Link href="/contact" className="hover:text-brand-accent-cyan">Contact</Link>

@@ -1,0 +1,20 @@
+import { describe, expect, it } from "vitest";
+import { caseStudies } from "./case-studies";
+import { servicePages } from "./service-pages";
+import { services } from "./services-data";
+
+describe("service pages", () => {
+  it("only exist for known services", () => {
+    const ids = new Set(services.map((s) => s.id));
+    for (const p of servicePages) expect(ids.has(p.id)).toBe(true);
+  });
+
+  it("link their worked example to an existing case study", () => {
+    const slugs = new Set(caseStudies.map((c) => `/work/${c.slug}`));
+    for (const p of servicePages) expect(slugs.has(p.example.href)).toBe(true);
+  });
+
+  it("label every example as a reference project, not a client", () => {
+    for (const p of servicePages) expect(p.example.label).toMatch(/reference project/i);
+  });
+});
