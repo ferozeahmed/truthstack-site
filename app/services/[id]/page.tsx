@@ -71,9 +71,38 @@ export default async function ServiceDetailPage({
           </span>
           <h3 className="mt-2 font-mono text-lg font-semibold text-brand-text">{page.example.title}</h3>
           <p className="mt-2 text-brand-muted">{page.example.summary}</p>
-          <Link href={page.example.href} className="mt-4 inline-block text-brand-accent-green hover:underline">
-            {page.example.cta} →
-          </Link>
+          {page.example.sample && (
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-left text-sm" data-testid="sample-table">
+                <caption className="mb-2 text-left text-brand-muted">{page.example.sample.caption}</caption>
+                <thead>
+                  <tr className="border-b border-brand-border font-mono text-brand-accent-cyan">
+                    {page.example.sample.headers.map((h) => (
+                      <th key={h} scope="col" className="py-2 pr-4 font-normal">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="text-brand-muted">
+                  {page.example.sample.rows.map((row) => (
+                    <tr key={row[0]} className="border-b border-brand-border/60 align-top">
+                      {row.map((cell, i) => (
+                        <td key={cell} className={`py-2 pr-4 ${i === 0 ? "font-semibold text-brand-text" : ""}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {page.example.href && (
+            <Link href={page.example.href} className="mt-4 inline-block text-brand-accent-green hover:underline">
+              {page.example.cta} →
+            </Link>
+          )}
         </div>
       </section>
 

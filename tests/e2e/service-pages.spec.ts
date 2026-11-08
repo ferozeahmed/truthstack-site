@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("services list links to detail pages only where they exist", async ({ page }) => {
   await page.goto("/services");
-  await expect(page.getByRole("link", { name: "See how it works →" })).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "See how it works →" })).toHaveCount(4);
 });
 
 test("framework service page shows diagram, steps and worked example", async ({ page }) => {
@@ -34,4 +34,18 @@ test("work page lists PULSE and case study states its limits", async ({ page }) 
     "href",
     "https://github.com/ferozeahmed/PULSE",
   );
+});
+
+test("AI testing page is labelled illustrative and shows layers and sample cases", async ({ page }) => {
+  await page.goto("/services/ai-llm-testing");
+  await expect(page.getByTestId("llm-diagram")).toBeVisible();
+  await expect(page.getByText("Illustrative · method only, not client results")).toBeVisible();
+  await expect(page.getByTestId("sample-table").getByRole("row")).toHaveCount(6);
+});
+
+test("embedded page shows the engagement flow and report template", async ({ page }) => {
+  await page.goto("/services/embedded-consultant");
+  await expect(page.getByTestId("engagement-diagram")).toBeVisible();
+  await expect(page.getByText("Illustrative · template, not real data")).toBeVisible();
+  await expect(page.getByTestId("sample-table").getByRole("row")).toHaveCount(7);
 });
