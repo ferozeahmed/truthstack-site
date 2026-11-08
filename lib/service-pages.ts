@@ -1,4 +1,6 @@
-export type DiagramKey = "framework" | "pipeline" | "llm" | "engagement";
+import { FINDINGS } from "./audit-pulse";
+
+export type DiagramKey = "framework" | "pipeline" | "llm" | "engagement" | "audit";
 
 export interface ServicePage {
   /** Matches a `Service.id` in lib/services-data.ts. */
@@ -114,6 +116,58 @@ export const servicePages: ServicePage[] = [
     ],
     notes:
       "Tooling is chosen to match what you already use. I do not require a particular CI vendor.",
+  },
+  {
+    id: "test-strategy-audit",
+    headline: "A clear, evidence-backed picture of where your testing is weak, and what to fix first.",
+    problem:
+      "Teams often feel that releases are risky without knowing why. An outside review turns that feeling into a short, ranked list: what is wrong, how serious it is, how hard it is to fix and in what order to do it.",
+    diagram: "audit",
+    diagramCaption:
+      "Audit flow. Every finding carries evidence, a severity and an effort estimate, so the roadmap is a ranking rather than an opinion.",
+    steps: [
+      {
+        title: "Scope and access",
+        text: "We agree what is in scope. I get read access to the repository and CI, and spend a short call on how you release today.",
+      },
+      {
+        title: "Map the flows",
+        text: "I trace how code becomes a release, and which tests protect which flows, to find the gaps.",
+      },
+      {
+        title: "Score each finding",
+        text: "Every finding gets a severity and an effort estimate, so priorities are visible.",
+      },
+      {
+        title: "Rank and report",
+        text: "A written report with evidence for each finding, and the things already working well.",
+      },
+      {
+        title: "Walk through the roadmap",
+        text: "A call to go through the plan: fix first, plan next, tidy when passing.",
+      },
+    ],
+    example: {
+      label: "Reference project · self-initiated audit of my own repo",
+      title: "Sample audit: my own PULSE framework",
+      summary:
+        "Not a client audit. I ran the same method on my own framework and published the full report, with real findings traceable to the code. The top three are below.",
+      sample: {
+        caption: "Top three findings from the PULSE audit.",
+        headers: ["Finding", "Severity", "Effort"],
+        rows: FINDINGS.slice(0, 3).map((f) => [f.title, f.severity, f.effort === "S" ? "Small" : f.effort === "M" ? "Medium" : "Large"]),
+      },
+      href: "/work/pulse-audit",
+      cta: "Read the full sample audit",
+    },
+    deliverables: [
+      "Written audit report with evidence for every finding",
+      "Severity and effort grid so priorities are visible",
+      "Roadmap: fix first, plan next, tidy when passing",
+      "Walkthrough call, and optional help implementing the fixes",
+    ],
+    notes:
+      "I work from your code, pipeline and a short interview. I tell you what I reviewed and what I did not.",
   },
   {
     id: "ai-llm-testing",

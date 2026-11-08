@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { caseStudies } from "@/lib/case-studies";
+import { workItems } from "@/lib/work-index";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -21,7 +21,7 @@ export default function WorkPage() {
         </p>
       </Reveal>
       <div className="mt-10 grid gap-6">
-        {caseStudies.map((c) => (
+        {workItems.map((c) => (
           <Reveal key={c.slug}>
             <Link
               href={`/work/${c.slug}`}
@@ -32,7 +32,7 @@ export default function WorkPage() {
               </span>
               <h2 className="mt-2 font-mono text-xl font-semibold text-brand-text">{c.title}</h2>
               <p className="mt-2 text-brand-muted">{c.summary}</p>
-              <span className="mt-4 inline-block text-brand-accent-green">Read the case study →</span>
+              <span className="mt-4 inline-block text-brand-accent-green">{c.cta} →</span>
             </Link>
           </Reveal>
         ))}
