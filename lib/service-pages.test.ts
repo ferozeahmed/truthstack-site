@@ -11,10 +11,16 @@ describe("service pages", () => {
 
   it("link their worked example to an existing case study", () => {
     const slugs = new Set(caseStudies.map((c) => `/work/${c.slug}`));
-    for (const p of servicePages) expect(slugs.has(p.example.href)).toBe(true);
+    for (const p of servicePages) {
+      if (p.example.href) expect(slugs.has(p.example.href)).toBe(true);
+    }
   });
 
-  it("label every example as a reference project, not a client", () => {
-    for (const p of servicePages) expect(p.example.label).toMatch(/reference project/i);
+  it("label every example as a reference project or illustrative, never as a client", () => {
+    for (const p of servicePages) expect(p.example.label).toMatch(/reference project|illustrative/i);
+  });
+
+  it("give every example either a case study link or a sample table", () => {
+    for (const p of servicePages) expect(Boolean(p.example.href || p.example.sample)).toBe(true);
   });
 });
