@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { CI_EXCERPT, PROBLEMS, PROCESS } from "./home-content";
+import { caseStudies } from "./case-studies";
+import { CI_EXCERPT, PROBLEMS, PROCESS, PULSE_HIGHLIGHTS, PULSE_REPO } from "./home-content";
 
 describe("home content", () => {
   it("has unique problems and process steps", () => {
@@ -24,5 +25,10 @@ describe("home content", () => {
     for (const cmd of ["ruff check", "mypy src/pulse_tf", "pytest tests/", "pytest examples/", "uv build"]) {
       expect(CI_EXCERPT).toContain(cmd);
     }
+  });
+
+  it("points the PULSE section at the same repo as the case study", () => {
+    expect(PULSE_REPO).toBe(caseStudies.find((c) => c.slug === "pulse")?.repo);
+    expect(PULSE_HIGHLIGHTS.length).toBeGreaterThanOrEqual(4);
   });
 });
