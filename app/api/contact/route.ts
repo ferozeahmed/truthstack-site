@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getContactConfig } from "@/lib/contact-config";
 import { validateContact, type ContactFormData } from "@/lib/validate-contact";
-
-const CONTACT_EMAIL = "algofire-contact@googlegroups.com";
 
 export async function POST(request: Request) {
   const data = (await request.json()) as ContactFormData;
@@ -17,10 +16,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Contact form is not configured." }, { status: 500 });
   }
 
+  const { to, from } = getContactConfig();
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: "Truthstack Contact <onboarding@resend.dev>",
-    to: CONTACT_EMAIL,
+    from,
+    to,
     replyTo: data.email,
     subject: `New contact from ${data.name}`,
     text: `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || "—"}\nService: ${data.serviceInterest}\n\n${data.message}`,
