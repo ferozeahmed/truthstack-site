@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { caseStudies } from "./case-studies";
+import { workItems } from "./work-index";
 import { servicePages } from "./service-pages";
 import { services } from "./services-data";
 
@@ -9,8 +9,8 @@ describe("service pages", () => {
     for (const p of servicePages) expect(ids.has(p.id)).toBe(true);
   });
 
-  it("link their worked example to an existing case study", () => {
-    const slugs = new Set(caseStudies.map((c) => `/work/${c.slug}`));
+  it("link their worked example to an existing work item", () => {
+    const slugs = new Set(workItems.map((c) => `/work/${c.slug}`));
     for (const p of servicePages) {
       if (p.example.href) expect(slugs.has(p.example.href)).toBe(true);
     }
