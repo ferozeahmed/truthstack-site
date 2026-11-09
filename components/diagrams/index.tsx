@@ -1,4 +1,5 @@
 import type { DiagramKey } from "@/lib/service-pages";
+import AuditDiagram from "./AuditDiagram";
 import EngagementDiagram from "./EngagementDiagram";
 import FrameworkDiagram from "./FrameworkDiagram";
 import LlmDiagram from "./LlmDiagram";
@@ -9,6 +10,7 @@ const DIAGRAMS: Record<DiagramKey, () => React.JSX.Element> = {
   pipeline: PipelineDiagram,
   llm: LlmDiagram,
   engagement: EngagementDiagram,
+  audit: AuditDiagram,
 };
 
 export default function Diagram({ name }: { name: DiagramKey }) {
