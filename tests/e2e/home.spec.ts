@@ -41,11 +41,24 @@ test("home page explains the problems, process and CI approach", async ({ page }
   await expect(page.getByRole("heading", { name: "How we work together" })).toBeVisible();
   await expect(page.getByRole("listitem").filter({ hasText: "Hand off" })).toBeVisible();
   await expect(page.getByTestId("ci-snippet")).toContainText("uv run mypy src/pulse_tf");
-  await page.getByRole("link", { name: /Read the PULSE case study/ }).click();
+  await page.getByRole("link", { name: /See how PULSE.s CI is set up/ }).click();
   await expect(page).toHaveURL(/\/work\/pulse$/);
 });
 
 test("closing call to action leads to the contact form", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Request an intro call" })).toHaveAttribute("href", "/contact");
+});
+
+test("home page has a dedicated PULSE section with working links", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Engineering better automation frameworks." })).toBeVisible();
+  await expect(page.getByText(/Explore PULSE, our reference automation framework/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "View the code on GitHub →" })).toHaveAttribute(
+    "href",
+    "https://github.com/ferozeahmed/PULSE",
+  );
+  await expect(page.getByRole("link", { name: "See the sample audit →" })).toHaveAttribute("href", "/work/pulse-audit");
+  await page.getByRole("link", { name: "Read the PULSE case study" }).click();
+  await expect(page).toHaveURL(/\/work\/pulse$/);
 });

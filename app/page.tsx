@@ -4,7 +4,7 @@ import StatCounter from "@/components/StatCounter";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services-data";
 import Link from "next/link";
-import { CI_EXCERPT, PROBLEMS, PROCESS } from "@/lib/home-content";
+import { CI_EXCERPT, PROBLEMS, PROCESS, PULSE_HIGHLIGHTS, PULSE_REPO } from "@/lib/home-content";
 
 const tools = [
   "Playwright",
@@ -150,6 +150,65 @@ export default function Home() {
         </Reveal>
       </section>
 
+      <section aria-labelledby="pulse-heading" className="mx-auto max-w-6xl px-6 py-16">
+        <Reveal>
+          <div className="rounded-xl border border-brand-accent-cyan/40 bg-brand-surface p-8 sm:p-10">
+            <p className="font-mono text-xs uppercase tracking-wide text-brand-accent-cyan">
+              Reference framework · PULSE
+            </p>
+            <h2 id="pulse-heading" className="mt-3 font-mono text-2xl font-bold text-brand-text sm:text-3xl">
+              Engineering better automation frameworks.
+            </h2>
+            <p className="mt-4 max-w-3xl text-brand-text/90">
+              Explore PULSE, our reference automation framework demonstrating how we approach
+              scalable, maintainable web and API automation.
+            </p>
+            <ul className="mt-8 grid gap-x-8 gap-y-5 md:grid-cols-2">
+              {PULSE_HIGHLIGHTS.map((h) => (
+                <li key={h.title} className="flex gap-3">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#22d3ee"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className="mt-0.5 flex-none"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <p className="text-sm text-brand-muted">
+                    <span className="font-semibold text-brand-text">{h.title}.</span> {h.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link
+                href="/work/pulse"
+                className="inline-block rounded-md bg-brand-accent-cyan px-5 py-2.5 font-mono text-sm font-semibold text-brand-bg hover:opacity-90"
+              >
+                Read the PULSE case study
+              </Link>
+              <a
+                href={PULSE_REPO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-accent-green hover:underline"
+              >
+                View the code on GitHub →
+              </a>
+              <Link href="/work/pulse-audit" className="text-brand-accent-green hover:underline">
+                See the sample audit →
+              </Link>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       <section aria-labelledby="ci-heading" className="mx-auto max-w-4xl px-6 py-16">
         <Reveal>
           <h2 id="ci-heading" className="text-center font-mono text-2xl font-bold text-brand-text">
@@ -167,7 +226,7 @@ export default function Home() {
           </pre>
           <p className="mt-4 text-center">
             <Link href="/work/pulse" className="text-brand-accent-green hover:underline">
-              Read the PULSE case study →
+              See how PULSE&apos;s CI is set up →
             </Link>
           </p>
         </Reveal>

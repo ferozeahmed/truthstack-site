@@ -117,3 +117,25 @@ steps:
       uv run pytest examples/
   - name: Build package
     run: uv build`;
+
+export const PULSE_REPO = "https://github.com/ferozeahmed/PULSE";
+
+/** Verified against the PULSE source and CI; see /work/pulse. */
+export const PULSE_HIGHLIGHTS: Point[] = [
+  {
+    title: "Web and API in one core",
+    text: "A base page, a base API client and a client factory, delivered as a pytest plugin so fixtures are available once it is installed.",
+  },
+  {
+    title: "Reports that read like a script",
+    text: "Every page action is recorded as a step in Allure reports, with a screenshot captured when a web test fails.",
+  },
+  {
+    title: "Built to be extended",
+    text: "Install only the extras you need, configure through environment variables, and extend the base classes with your own pages and clients.",
+  },
+  {
+    title: "Held to its own standard",
+    text: "Linting, strict type checks and tests on Python 3.10 to 3.12 in CI. It has also been audited in public, gaps included.",
+  },
+];
