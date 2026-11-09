@@ -36,13 +36,60 @@ export default function Home() {
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PROBLEMS.map((item) => (
-              <li key={item.problem} className="rounded-lg border border-brand-border bg-brand-surface p-5">
-                <h3 className="font-mono font-semibold text-brand-text">{item.problem}</h3>
-                <p className="mt-2 text-brand-muted">{item.fix}</p>
-              </li>
-            ))}
+          <ul className="mt-10 grid gap-6 lg:grid-cols-2">
+            {PROBLEMS.map((item, i) => {
+              const accent = i % 2 === 0 ? "green" : "cyan";
+              const wide = i === 0 || i >= 3;
+              return (
+                <li
+                  key={item.problem}
+                  className={`overflow-hidden rounded-xl border border-brand-border bg-brand-surface ${
+                    wide ? "lg:col-span-2" : ""
+                  }`}
+                >
+                  <div
+                    className={`h-1 ${accent === "green" ? "bg-brand-accent-green" : "bg-brand-accent-cyan"}`}
+                    aria-hidden="true"
+                  />
+                  <div className="p-6">
+                    <div className="flex items-baseline gap-3">
+                      <span
+                        className={`font-mono text-sm ${
+                          accent === "green" ? "text-brand-accent-green" : "text-brand-accent-cyan"
+                        }`}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-mono text-lg font-semibold text-brand-text">{item.problem}</h3>
+                    </div>
+                    <p className="mt-3 text-brand-text/90">{item.lead}</p>
+                    <ul className={`mt-5 grid gap-x-8 gap-y-4 ${wide ? "md:grid-cols-2" : ""}`}>
+                      {item.points.map((pt) => (
+                        <li key={pt.title} className="flex gap-3">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke={accent === "green" ? "#39ff88" : "#22d3ee"}
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                            className="mt-0.5 flex-none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                          <p className="text-sm text-brand-muted">
+                            <span className="font-semibold text-brand-text">{pt.title}.</span> {pt.text}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </Reveal>
       </section>
