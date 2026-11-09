@@ -15,13 +15,19 @@ export default function Hero() {
         Open to new engagements
       </p>
       <h1 className="mx-auto mt-6 max-w-3xl font-mono text-4xl font-bold text-brand-text sm:text-5xl">
-        Test automation that keeps pace with how fast you ship.
+        Build confidence in every release with intelligent test automation.
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-brand-muted">
-        I&apos;m Feroze, a test automation architect with 18+ years of experience. I build test
-        frameworks, CI/CD test pipelines and AI-model evaluations for engineering teams who&apos;d
-        rather catch bugs before their users do.
-      </p>
+      <div className="mx-auto mt-6 max-w-2xl space-y-4 text-brand-muted">
+        <p>
+          Truthstack helps SaaS companies and growing engineering teams build reliable test
+          automation frameworks, accelerate regression testing and integrate quality into their
+          CI/CD pipelines.
+        </p>
+        <p>
+          From automation architecture to AI-assisted testing, get senior QA expertise without
+          building a full-time testing team.
+        </p>
+      </div>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/contact"
