@@ -3,7 +3,7 @@ import { services } from "../../lib/services-data";
 
 test("home page renders hero, all service cards, and CTA", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1, name: /test automation that keeps pace with how fast you ship/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Build confidence in every release with intelligent test automation." })).toBeVisible();
 
   for (const service of services) {
     await expect(page.getByText(service.title, { exact: true })).toBeVisible();
@@ -12,7 +12,9 @@ test("home page renders hero, all service cards, and CTA", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Talk to me" })).toHaveAttribute("href", "/contact");
   await expect(page.getByRole("link", { name: "See services" })).toHaveAttribute("href", "/services");
   await expect(page.getByText("Open to new engagements")).toBeVisible();
-  await expect(page.getByText(/18\+ years of experience/)).toBeVisible();
+  await expect(page.getByText(/Truthstack helps SaaS companies and growing engineering teams/)).toBeVisible();
+  await expect(page.getByText(/get senior QA expertise without building a full-time testing team/)).toBeVisible();
+  await expect(page.getByText("Years in quality engineering")).toBeVisible();
 });
 
 test("home page shows real credentials and tools, with no placeholder proof", async ({ page }) => {
