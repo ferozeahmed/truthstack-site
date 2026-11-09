@@ -32,6 +32,10 @@ test("home page explains the problems, process and CI approach", async ({ page }
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /releases shouldn't feel like a gamble/i })).toBeVisible();
   await expect(page.getByRole("heading", { level: 3, name: "Nobody trusts the tests" })).toBeVisible();
+  await expect(page.getByText("Right test, right layer")).toBeVisible();
+  await expect(page.getByText("An automation health dashboard")).toBeVisible();
+  await expect(page.getByText("Drift monitoring in production")).toBeVisible();
+  await expect(page.getByText("Release readiness view")).toBeVisible();
   await expect(page.getByRole("heading", { name: "How we work together" })).toBeVisible();
   await expect(page.getByRole("listitem").filter({ hasText: "Hand off" })).toBeVisible();
   await expect(page.getByTestId("ci-snippet")).toContainText("uv run mypy src/pulse_tf");
