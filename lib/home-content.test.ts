@@ -7,6 +7,14 @@ describe("home content", () => {
     expect(new Set(PROCESS.map((p) => p.title)).size).toBe(PROCESS.length);
   });
 
+  it("gives every problem a lead and several concrete points", () => {
+    for (const p of PROBLEMS) {
+      expect(p.lead.length).toBeGreaterThan(20);
+      expect(p.points.length).toBeGreaterThanOrEqual(5);
+      expect(new Set(p.points.map((x) => x.title)).size).toBe(p.points.length);
+    }
+  });
+
   it("makes no numeric claims about results", () => {
     const text = JSON.stringify([PROBLEMS, PROCESS]);
     expect(text).not.toMatch(/\d+\s?%|\d+x\b|\d+\+ (clients|projects)/i);
