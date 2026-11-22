@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
+import { LINKEDIN_URL } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -23,6 +24,15 @@ export default function ContactPage() {
             className="text-brand-accent-green hover:underline"
           >
             algofire-contact@googlegroups.com
+          </a>
+          , or find me on{" "}
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-accent-green hover:underline"
+          >
+            LinkedIn
           </a>
           .
         </p>

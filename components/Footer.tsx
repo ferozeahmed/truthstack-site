@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LINKEDIN_URL } from "@/lib/site-links";
 
 export default function Footer() {
   return (
@@ -12,6 +13,14 @@ export default function Footer() {
           <Link href="/pricing" className="hover:text-brand-accent-cyan">Pricing</Link>
           <Link href="/contact" className="hover:text-brand-accent-cyan">Contact</Link>
           <Link href="/privacy" className="hover:text-brand-accent-cyan">Privacy</Link>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-accent-cyan"
+          >
+            LinkedIn
+          </a>
           <a href="mailto:algofire-contact@googlegroups.com" className="hover:text-brand-accent-cyan">
             algofire-contact@googlegroups.com
           </a>
