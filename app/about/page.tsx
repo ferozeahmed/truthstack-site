@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import { LINKEDIN_URL } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "About",
@@ -28,7 +29,7 @@ const PULSE_FEATURES = [
     title: "Reporting",
     text: "Allure steps, with a screenshot attached automatically when a test fails.",
   },
-  { title: "Parallel runs", text: "Works with pytest-xdist; no shared global state." },
+  { title: "Parallel runs", text: "Supports parallel runs with pytest-xdist." },
   {
     title: "Quality gates",
     text: "CI runs ruff, strict mypy and tests on Python 3.10–3.12 for every pull request.",
@@ -63,6 +64,16 @@ export default function AboutPage() {
         </p>
         <p className="mt-4 text-brand-muted">
           You work directly with me — no hand-offs between a sales team and a delivery team.
+        </p>
+        <p className="mt-4">
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-accent-green hover:underline"
+          >
+            Connect with me on LinkedIn &rarr;
+          </a>
         </p>
         <dl className="mt-8 grid gap-4 sm:grid-cols-2">
           {FACTS.map((fact) => (
